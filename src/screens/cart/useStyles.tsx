@@ -150,6 +150,9 @@ const useStyles = () => {
       color: colors.danger,
       marginHorizontal: ms(Values.CONTAINER_MARGIN),
     },
+    disabledBtn: {
+      backgroundColor: colors.grey,
+    },
   });
 };
 

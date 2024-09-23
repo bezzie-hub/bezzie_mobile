@@ -72,8 +72,6 @@ const PDP: React.FC<any> = (props: any) => {
       );
       if (addToCart.fulfilled.match(res)) {
         setQty(qty || 0);
-      } else {
-        setQty(product.product_info.qty || 0);
       }
     });
 

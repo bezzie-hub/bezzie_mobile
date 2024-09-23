@@ -24,7 +24,7 @@ const useStyles = () => {
       alignSelf: 'center',
     },
     listContainer: {
-      paddingBottom: ms(Values.CONTAINER_PADDING * 5),
+      paddingBottom: ms(Values.CONTAINER_PADDING * 10),
       alignSelf: 'center',
     },
     itemTitle: {

@@ -286,6 +286,9 @@ const AddressModal: React.FC<{
                           cancelAction();
                           navigate(
                             ROUTER.CREATE_EDIT_ADDRESS! as keyof RootStackParamList,
+                            {
+                              fromCart: true,
+                            },
                           );
                         }}>
                         <Text

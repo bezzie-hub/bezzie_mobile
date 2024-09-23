@@ -7,28 +7,32 @@ import showToast from '@src/utils/showToast';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from '@src/navigations/routes';
+import CartService from '@src/services/cart.service';
+import {useAppDispatch} from '@src/store/hooks';
+import {getCart} from '@src/store/slices/cart';
+
+const AddressSchema = Yup.object().shape({
+  custom_full_name: Yup.string().required('Full Name is Required'),
+  address_line1: Yup.string().required('Address Line 1 is Required'),
+  address_line2: Yup.string().required('Address Line 2 is Required'),
+  city: Yup.string().required('City is Required'),
+  state: Yup.string().required('State is Required'),
+  country: Yup.string().required('Country is Required'),
+  address_type: Yup.string().required('Address Type is Required'),
+  pincode: Yup.string().required('Pincode is Required'),
+  phone: Yup.string()
+    .matches(
+      /([0-9\ \+\_\-\,\.\*\#\(\)]){1,20}$/,
+      'Please enter a valid Phone number',
+    )
+    .required('Phone is Required'),
+});
 
 function useCreateEditAddressState(props: any) {
   const [loading, setLoading] = useState(false);
   const {goBack} = useNavigation<StackNavigationProp<RootStackParamList>>();
   const [countries, setCountries] = useState<any[]>([]);
-
-  const AddressSchema = Yup.object().shape({
-    custom_full_name: Yup.string().required('Full Name is Required'),
-    address_line1: Yup.string().required('Address Line 1 is Required'),
-    address_line2: Yup.string().required('Address Line 2 is Required'),
-    city: Yup.string().required('City is Required'),
-    state: Yup.string().required('State is Required'),
-    country: Yup.string().required('Country is Required'),
-    address_type: Yup.string().required('Address Type is Required'),
-    pincode: Yup.string().required('Pincode is Required'),
-    phone: Yup.string()
-      .matches(
-        /([0-9\ \+\_\-\,\.\*\#\(\)]){1,20}$/,
-        'Please enter a valid Phone number',
-      )
-      .required('Phone is Required'),
-  });
+  const dispatch = useAppDispatch();
 
   const getCountries = useCallback(() => {
     AddressService.getAllCountries()
@@ -75,6 +79,9 @@ function useCreateEditAddressState(props: any) {
         res = await AddressService.addAddress(values);
       }
       if (res.status_code === 200) {
+        if (props.route?.params?.fromCart) {
+          await onSelectAddress(res.data?.name);
+        }
         showToast(
           props.route?.params?.address ? 'Address Updated' : 'Address Added',
         );
@@ -99,6 +106,25 @@ function useCreateEditAddressState(props: any) {
       showToast(err.message || 'Something went wrong');
     } finally {
       setSubmitting(false);
+    }
+  };
+
+  const onSelectAddress = async (address_name: string) => {
+    try {
+      const res = await CartService.selectAddress({
+        address_name,
+      });
+      if (res.status_code === 200) {
+        await dispatch(
+          getCart({
+            isUpdateCart: true,
+          }),
+        );
+      } else {
+        throw new Error(res.message || '');
+      }
+    } catch (err) {
+      showToast((err as any).message || 'Something went wrong');
     }
   };
 

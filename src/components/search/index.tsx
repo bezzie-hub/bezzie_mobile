@@ -32,9 +32,11 @@ const Search = ({isHome}: PropType) => {
   return (
     <View style={[styles.container]}>
       <Filter width={width} visible={visible} setVisible={setVisible} />
-      <Pressable onPress={goBack}>
-        <Ionicons name="arrow-back" color={colors.pageHead} size={ms(20)} />
-      </Pressable>
+      {!isHome && (
+        <Pressable onPress={goBack}>
+          <Ionicons name="arrow-back" color={colors.pageHead} size={ms(20)} />
+        </Pressable>
+      )}
       <View style={styles.searchInputContainer}>
         <Ionicons
           name="search"

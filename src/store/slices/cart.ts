@@ -81,9 +81,6 @@ export const addToCart = createAsyncThunk(
                   : ''
               }`
             : '';
-        if (msg) {
-          await dispatch(getCart({isUpdateCart: true}));
-        }
         showToast(msg || response?.message || 'Something went wrong');
         throw new Error(response?.message || '');
       }

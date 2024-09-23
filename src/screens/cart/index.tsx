@@ -20,15 +20,21 @@ const Cart = (props: any) => {
   const commonStyles = useCommonStyles();
   const {isDark} = useGetTheme();
   const orientation = useGetOrientation();
-  const {cart, loading} = useCartState();
+  const {cart, loading, setItemValid, isItemsValid} = useCartState();
 
   const renderItem = ({item, index}: any) => (
     <Item
       key={item.item_code}
       index={index}
       item={{...item, currency: cart?.cart.currency}}
+      setItemValid={setItemValid}
     />
   );
+
+  const disableCheckout =
+    cart?.items.some(v => {
+      return v.qty > v.in_stock_qty;
+    }) || isItemsValid.includes(false);
 
   return (
     <>
@@ -133,7 +139,12 @@ const Cart = (props: any) => {
                         </Text>
                       </View>
                       <Pressable
-                        style={[styles.btnContainer, styles.btnStyle]}
+                        disabled={disableCheckout}
+                        style={[
+                          styles.btnContainer,
+                          styles.btnStyle,
+                          disableCheckout ? styles.disabledBtn : {},
+                        ]}
                         android_ripple={{
                           radius: 20,
                           borderless: true,
