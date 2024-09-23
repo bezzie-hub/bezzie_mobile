@@ -1,0 +1,51 @@
+export const data = [
+  {
+    key: '1',
+    item: 'Luxury Watche sLuxury Watches  ',
+    company: 'Reward watches inc',
+    price: 15000.0,
+    image: require('../../assets/images/t2.jpg'),
+  },
+  {
+    key: '2',
+    item: 'Luxury Watches Luxury Watches ',
+    company: 'Reward watches inc',
+    price: 10000.0,
+    image: require('../../assets/images/t2.jpg'),
+  },
+  {
+    key: '3',
+    item: 'Luxury Watches ',
+    company: 'Reward watches inc',
+    price: 2300.0,
+    image: require('../../assets/images/t2.jpg'),
+  },
+  {
+    key: '4',
+    item: 'Luxury Watches ',
+    company: 'Reward watches inc',
+    price: 10000.0,
+    image: require('../../assets/images/t2.jpg'),
+  },
+  {
+    key: '5',
+    item: 'Luxury Watches ',
+    company: 'Reward watches inc',
+    price: 2300.0,
+    image: require('../../assets/images/t2.jpg'),
+  },
+  {
+    key: '6',
+    item: 'Luxury Watches ',
+    company: 'Reward watches inc',
+    price: 2300.0,
+    image: require('../../assets/images/t2.jpg'),
+  },
+  {
+    key: '7',
+    item: 'Luxury Watches ',
+    company: 'Reward watches inc',
+    price: 2300.0,
+    image: require('../../assets/images/t2.jpg'),
+  },
+];
