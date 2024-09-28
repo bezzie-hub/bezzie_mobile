@@ -113,7 +113,9 @@ const Filter = ({visible, setVisible}: any) => {
         <View style={[styles.first]}>
           <Accordion
             sectionContainerStyle={styles.accordionSectionContainer}
-            sections={allSections.filter(item => item.content.items.length > 0)}
+            sections={allSections.filter(
+              item => item?.content?.items?.length > 0,
+            )}
             activeSections={Array(allSections.length)
               .fill(0, 0, allSections.length)
               .map((_, i) => i)}
