@@ -21,45 +21,8 @@ const useStyles = () => {
       alignSelf: 'center',
       backgroundColor: colors.background,
     },
-    list: {
-      flexDirection: 'row',
-      width: '100%',
-      alignSelf: 'center',
-      flexWrap: 'wrap',
-    },
     first: {
       paddingTop: ms(50),
-    },
-    accordionSectionContainer: {
-      backgroundColor: colors.card,
-      padding: ms(Values.CONTAINER_PADDING),
-      marginBottom: ms(5),
-    },
-    itemStyle: {
-      borderWidth: ms(1),
-      borderRadius: ms(Values.BORDER_RADIUS),
-      minWidth: ms(30),
-      paddingHorizontal: ms(Values.TEXT_PADDING),
-      height: ms(30),
-      justifyContent: 'center',
-      alignItems: 'center',
-      marginHorizontal: ms(Values.TEXT_MARGIN),
-      marginVertical: ms(Values.TEXT_MARGIN),
-    },
-    colorItem: {
-      padding: ms(Values.TEXT_PADDING),
-      justifyContent: 'center',
-      alignItems: 'center',
-      borderRadius: ms(Values.BORDER_RADIUS),
-      marginHorizontal: ms(Values.TEXT_MARGIN),
-      marginVertical: ms(Values.TEXT_MARGIN),
-      width: ms(40),
-      height: ms(40),
-    },
-    color: {
-      margin: 0,
-      padding: 0,
-      borderWidth: 0,
     },
     btnContainer: {
       position: 'absolute',
@@ -78,17 +41,6 @@ const useStyles = () => {
     },
     btn: {
       flex: 1,
-    },
-    accordion: {
-      marginBottom: ms(2),
-    },
-    accordionTitle: {
-      fontSize: ms(Values.L),
-      fontFamily: 'Montserrat-Regular',
-      color: colors.contentText,
-    },
-    accordionContentStyle: {
-      marginTop: ms(2 * Values.TEXT_MARGIN),
     },
     clearBtn: {
       borderRadius: ms(Values.BORDER_RADIUS),
@@ -111,17 +63,6 @@ const useStyles = () => {
       right: 0,
       padding: 0,
       zIndex: 1000,
-    },
-    listSectionTitle: {
-      fontSize: ms(Values.XL),
-      fontFamily: 'Montserrat-Regular',
-    },
-    f10: {
-      fontSize: ms(Values.S),
-      fontFamily: 'Montserrat-Regular',
-    },
-    mt30: {
-      marginTop: ms(30),
     },
     btnText: {
       fontSize: ms(Values.M),

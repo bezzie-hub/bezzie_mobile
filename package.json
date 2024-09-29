@@ -1,5 +1,5 @@
 {
-  "name": "Bezzie",
+  "name": "bezzie",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -30,7 +30,6 @@
     "moment": "^2.30.1",
     "react": "18.2.0",
     "react-native": "0.73.6",
-    "react-native-collapsible": "^1.6.1",
     "react-native-config": "^1.5.1",
     "react-native-device-info": "^10.13.1",
     "react-native-elements": "^3.4.3",
